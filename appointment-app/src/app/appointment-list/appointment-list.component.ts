@@ -24,11 +24,15 @@ export class AppointmentListComponent {
       this.appointments.push(newAppoint);
       this.newAppointmentTitle="";
       this.newAppointmentDate=new Date();
+      // storing data in local storage
+      localStorage.setItem("appointments", JSON.stringify(this.appointments))
     }
   }
 
   // deleting appointment
   deleteAppointment(index:number){
     this.appointments.splice(index,1);
+    // storing data in local storage
+    localStorage.setItem("appointments", JSON.stringify(this.appointments))
   }
 }
