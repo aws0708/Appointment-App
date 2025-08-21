@@ -1,0 +1,42 @@
+1. Created Application 
+   npm i @angular/cli@16.3.7
+   ng s
+   ng g c appointment-list
+   ng g interface models/appointment
+
+
+2. Two-way data binding for Title and Date 
+    [(ngModel)]
+    FormsModule
+
+
+3. Created an array (interface type)
+    appointments: Appointment[] = [];
+
+
+4. created an interface newAppointement:Appointment 
+        used this interface --> to store values from input 
+        pushed this newAppointment into appointments (string intertface)
+
+
+5. Showed the appointments using *ngFor (CommonModule) 
+        and used -> index as i (for deleting appointment with index)
+
+
+6. Achieved deleting appointment using splice method of array 
+
+
+7. Used localStorage for storing the data permanently even after a session ends 
+   // storing data in local storage
+      localStorage.setItem("appointments", JSON.stringify(this.appointments))   
+
+
+8. used ngOnInit - fo showing data stored in localStorage 
+            //for showing data on page load
+    let savedAppointments = localStorage.getItem("appointments");
+
+    this.appointments = savedAppointments ? JSON.parse(savedAppointments) : [];
+
+9. Applied bootstrap classes and finished the project 
+   npm i bootstrap@5.3
+   in styles.css --> @import "bootstrap/dist/css/bootstrap.min.css";
