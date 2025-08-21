@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Appointment } from '../models/appointment';
 import {FormsModule} from '@angular/forms'
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-appointment-list',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './appointment-list.component.html',
   styleUrl: './appointment-list.component.css'
 })
@@ -23,8 +24,11 @@ export class AppointmentListComponent {
       this.appointments.push(newAppoint);
       this.newAppointmentTitle="";
       this.newAppointmentDate=new Date();
-
-      alert(this.appointments.length);
     }
+  }
+
+  // deleting appointment
+  deleteAppointment(index:number){
+    this.appointments.splice(index,1);
   }
 }
